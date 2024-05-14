@@ -1,0 +1,50 @@
+{
+    "listaordenadores": [
+      
+        {
+        "nombre": "ASUS 4677R",
+        "grafica": "GTX 1060",
+        "procesador": "i5 12600F",
+        "precio": "799€",
+        "comentarios": [
+          "Me gusta poco",
+          "Muy mal precio",
+          " la verdad es que me han estafado"
+        ]
+      },
+      {
+        "nombre": "LG 24468",
+        "grafica": "RTX 4090",
+        "procesador": "i9 14900KS",
+        "precio": "3080€",
+        "comentarios": [
+          "Me gusta un montonazo",
+          "Muy buen precio",
+          " la verdad es que me flipa"
+        ]
+
+      },
+      {
+        "nombre": "Dell 4000T",
+        "grafica": "RTX 3070",
+        "procesador": "Ryzen 5 5700",
+        "precio": "600€",
+        "comentarios": [
+          "Horrible ordenador",
+          "Muy malo",
+          "Pues a mi me gusta este PC"
+        ]
+      },
+      {
+        "nombre": "Acer 7500F",
+        "grafica": "RX 7800 XT",
+        "procesador": "Ryzen 7 7800x",
+        "precio": "2000€",
+        "comentarios": [
+          "Me gusta mucho",
+          "Muy bueno",
+          "Rapidisimo la verdad"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .contenedor {
+            border: 2px solid blue;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="botones">
+        <button id="botonNombres">Listar nombres</button>
+        <button id="botonDetalles">Listar productos con comentarios</button>
+    </div>
+    <div class="contenedor" id="listaOrdenadores"></div>
+
+    <script>
+        document.getElementById("botonNombres").onclick = mostrarNombres;
+        document.getElementById("botonDetalles").onclick = mostrarDetalles;
+
+        function mostrarNombres() {
+            fetch('./listaordenadores.json')
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('No se pudo cargar el archivo JSON.');
+                    }
+                    return response.json(); 
+                })
+                .then(function(data) {
+                    let lista = document.getElementById("listaOrdenadores");
+                    lista.innerHTML = ""; 
+
+                    data.listaordenadores.forEach(function(ordenador) {
+                        let li = document.createElement("li");
+                        li.textContent = ordenador.nombre;
+                        lista.appendChild(li);
+                    });
+                })
+                .catch(function(error) {
+                    console.error('Se produjo un error al cargar el archivo JSON:', error);
+                });
+        }
+
+        function mostrarDetalles() {
+            fetch('./listaordenadores.json')
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('No se pudo cargar el archivo JSON.');
+                    }
+                    return response.json(); 
+                })
+                .then(function(data) {
+                    let contenedor = document.getElementById("listaOrdenadores");
+                    contenedor.innerHTML = ""; 
+
+                    data.listaordenadores.forEach(function(ordenador) {
+                        let lista = document.createElement("ul");
+
+                        for (const key in ordenador) {
+                            let li = document.createElement("li");
+                            li.textContent = key + ": " + ordenador[key];
+                            lista.appendChild(li);
+                        }
+
+                        contenedor.appendChild(lista);
+                    });
+                })
+                .catch(function(error) {
+                    console.error('Se produjo un error al cargar el archivo JSON:', error);
+                });
+        }
+    </script>
+</body>
+</html>
